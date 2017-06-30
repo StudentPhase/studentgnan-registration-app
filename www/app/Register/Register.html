@@ -1,0 +1,113 @@
+<ion-view title="Student Registration">
+    <ion-nav-bar class="bar-custom">
+    </ion-nav-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label custom">Student Name</span>
+                <input type="text" placeholder="Student Name" ng-model="newRegistration.Name">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label custom">Phone Number</span>
+                <input type="number" placeholder="Phone Number" ng-model="newRegistration.PhoneNumber">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label custom">College</span>
+                <input type="text" placeholder="College" ng-model="newRegistration.College">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label custom">Course</span>
+                <input type="text" placeholder="Course" ng-model="newRegistration.Course">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label custom">Passport Number</span>
+                <input type="text" placeholder="Passport Number" ng-model="newRegistration.PassportNumber">
+            </label>
+            <div class="item">
+                <div class="row" style="padding-left:0px;padding-top:0px;">
+                    <div class="col custom" style="font-size:16px;padding-left:0px;padding-top:0px;">
+                        VISA Validity Details
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="openVisaStartDatePicker();">
+                    {{newRegistration.VisaStartDate | date: 'dd-MMM-yyyy'}}
+                </button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="openVisaEndDatePicker();">
+                    {{newRegistration.VisaEndDate | date: 'dd-MMM-yyyy'}}
+                </button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="row" style="padding-left:0px;padding-top:0px;">
+                    <div class="col custom" style="font-size:16px;padding-left:0px;padding-top:0px;">
+                        Regional Permit Validity Details
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="openRegionalPermitStartDatePicker();">
+                    {{newRegistration.RegionalPermitStartDate | date: 'dd-MMM-yyyy'}}
+                </button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="openRegionalPermitEndDatePicker();">
+                    {{newRegistration.RegionalPermitEndDate | date: 'dd-MMM-yyyy'}}
+                </button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <span class="custom">Documents</span>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="scanPhoto()">Photo</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="newRegistration.PictureURL">
+                    <div class="col">
+                        <img ng-src="{{newRegistration.PictureURL}}" alt="No picture detected" width="100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="scanPassport()">Passport</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="newRegistration.PassportImageURL">
+                    <div class="col">
+                        <img ng-src="{{newRegistration.PassportImageURL}}" alt="No picture detected" width="100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="scanVisa()">VISA</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="newRegistration.VisaImageURL">
+                    <div class="col">
+                        <img ng-src="{{newRegistration.VisaImageURL}}" alt="No picture detected" width="100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="scanRP()">Regional Permit</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="newRegistration.RegionalPermitImageURL">
+                    <div class="col">
+                        <img ng-src="{{newRegistration.RegionalPermitImageURL}}" alt="No picture detected" width="100%;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-custom loginButton" ng-click="register()">Register</button>
+                </div>
+            </div>
+    </ion-content>
+</ion-view>
