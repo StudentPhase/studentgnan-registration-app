@@ -1,14 +1,11 @@
 'use strict';
 
-angular.module('sgRegistrationApp').factory('RegisterFactory', function ($q, $http) {
+angular.module('sgRegistrationApp').factory('RegisterFactory', function($q, $http, LoginFactory) {
     var factory = {};
 
-    var website = 'http://localhost:5000';
-    // var website = 'https://studentgnan-api-dev.herokuapp.com';
-    // var website = 'https://studentgnan-api.herokuapp.com';
-    var URL = website;
+    var URL = LoginFactory.getBaseUrl();
 
-    factory.register = function (obj) {
+    factory.register = function(obj) {
         var d = $q.defer();
         $http({
             method: 'POST',
@@ -17,9 +14,9 @@ angular.module('sgRegistrationApp').factory('RegisterFactory', function ($q, $ht
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(function (success) {
+        }).then(function(success) {
             d.resolve(success);
-        }, function (error) {
+        }, function(error) {
             d.reject(error);
         });
         return d.promise;

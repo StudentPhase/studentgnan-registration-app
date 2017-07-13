@@ -2,13 +2,13 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
 
-  <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
 
-  <!-- un-comment this code to enable service worker
+    <!-- un-comment this code to enable service worker
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
@@ -17,39 +17,43 @@
       }
     </script>-->
 
-  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-  <link href="lib/ionic-toast/src/ionic-toast.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic-toast/src/ionic-toast.css" rel="stylesheet">
 
-  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-  <!-- custom css -->
-  <link href="app/styles/style.css" rel="stylesheet">
-  <link href="app/styles/theme.css" rel="stylesheet">
+    <!-- custom css -->
+    <link href="app/styles/style.css" rel="stylesheet">
+    <link href="app/styles/theme.css" rel="stylesheet">
 
-  <!-- ionic/angularjs js -->
-  <script src="lib/ionic/js/ionic.bundle.js"></script>
-  <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
-  <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
-  <script src="lib/moment/min/moment.min.js"></script>
-  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+    <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
-  <!-- cordova script (this will be a 404 during development) -->
-  <script src="cordova.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
 
-  <!-- your app's js -->
-  <script src="app/app.js"></script>
-  <!-- controllers -->
-  <script src="app/Register/RegisterController.js"></script>
-  <!-- factories -->
-  <script src="app/Register/RegisterFactory.js"></script>
+    <!-- your app's js -->
+    <script src="app/app.js"></script>
+    <!-- controllers -->
+    <script src="app/Register/RegisterController.js"></script>
+    <script src="app/Login/LoginController.js"></script>
+    <script src="app/Profile/ProfileController.js"></script>
+    <!-- factories -->
+    <script src="app/Register/RegisterFactory.js"></script>
+    <script src="app/Login/LoginFactory.js"></script>
+    <script src="app/Profile/ProfileFactory.js"></script>
 </head>
 
 <body ng-app="sgRegistrationApp">
-  <ion-pane>
-    <ion-nav-view></ion-nav-view>
-  </ion-pane>
+    <ion-pane>
+        <ion-nav-view></ion-nav-view>
+    </ion-pane>
 </body>
 
 </html>

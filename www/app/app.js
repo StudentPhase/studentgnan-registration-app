@@ -6,67 +6,80 @@
 angular.module('sgRegistrationApp', ['ionic',
     'ionic-datepicker',
     'ionic-toast',
-    'ngCordova'])
+    'ngCordova'
+])
 
-    .run(function ($ionicPlatform, $rootScope, $ionicLoading, $state, $ionicHistory, $cordovaNetwork, ionicToast) {
-        $ionicPlatform.ready(function () {
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-                // for form inputs)
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+.run(function($ionicPlatform, $rootScope, $ionicLoading, $state, $ionicHistory, $cordovaNetwork, ionicToast) {
+    $ionicPlatform.ready(function() {
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
-                // Don't remove this line unless you know what you are doing. It stops the viewport
-                // from snapping when text inputs are focused. Ionic handles this internally for
-                // a much nicer keyboard experience.
-                cordova.plugins.Keyboard.disableScroll(true);
-            }
-            if (window.StatusBar) {
-                StatusBar.styleDefault();
-            }
-        });
-
-        $rootScope.$on('loading:show', function () {
-            $ionicLoading.show({
-                template: '<ion-spinner icon="android"></ion-spinner>',
-                animation: 'fade-in',
-                showBackdrop: false,
-            });
-        });
-
-        $rootScope.$on('loading:hide', function () {
-            $ionicLoading.hide();
-        });
-
-    }).config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-        $httpProvider.interceptors.push(function ($rootScope) {
-            return {
-                request: function (config) {
-                    $rootScope.$broadcast('loading:show');
-                    return config;
-                },
-                requestError: function (requestError) {
-                    $rootScope.$broadcast('loading:hide');
-                    return requestError;
-                },
-                response: function (response) {
-                    $rootScope.$broadcast('loading:hide');
-                    return response;
-                },
-                responseError: function (rejection) {
-                    $rootScope.$broadcast('loading:hide');
-                    return rejection;
-                }
-            }
-        });
-
-        $stateProvider
-            .state('register', {
-                url: '/register',
-                cache: false,
-                templateUrl: 'app/Register/Register.html',
-                controller: 'RegisterController'
-            });
-
-        $urlRouterProvider.otherwise('/register');
-
+            // Don't remove this line unless you know what you are doing. It stops the viewport
+            // from snapping when text inputs are focused. Ionic handles this internally for
+            // a much nicer keyboard experience.
+            cordova.plugins.Keyboard.disableScroll(true);
+        }
+        if (window.StatusBar) {
+            StatusBar.styleDefault();
+        }
     });
+
+    $rootScope.$on('loading:show', function() {
+        $ionicLoading.show({
+            template: '<ion-spinner icon="android"></ion-spinner>',
+            animation: 'fade-in',
+            showBackdrop: false,
+        });
+    });
+
+    $rootScope.$on('loading:hide', function() {
+        $ionicLoading.hide();
+    });
+
+}).config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+    $httpProvider.interceptors.push(function($rootScope) {
+        return {
+            request: function(config) {
+                $rootScope.$broadcast('loading:show');
+                return config;
+            },
+            requestError: function(requestError) {
+                $rootScope.$broadcast('loading:hide');
+                return requestError;
+            },
+            response: function(response) {
+                $rootScope.$broadcast('loading:hide');
+                return response;
+            },
+            responseError: function(rejection) {
+                $rootScope.$broadcast('loading:hide');
+                return rejection;
+            }
+        }
+    });
+
+    $stateProvider
+        .state('login', {
+            url: '/login',
+            cache: false,
+            templateUrl: 'app/Login/Login.html',
+            controller: 'LoginController'
+        })
+        .state('register', {
+            url: '/register',
+            cache: false,
+            templateUrl: 'app/Register/Register.html',
+            controller: 'RegisterController'
+        })
+        .state('profile', {
+            url: '/profile',
+            cache: false,
+            templateUrl: 'app/Profile/Profile.html',
+            controller: 'ProfileController'
+        });
+
+    $urlRouterProvider.otherwise('/login');
+
+});

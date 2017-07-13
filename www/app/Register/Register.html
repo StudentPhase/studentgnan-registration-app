@@ -1,12 +1,19 @@
-<ion-view title="Student Registration">
+<ion-view title="Student Registration" class="nav-title-slide-ios7">
     <ion-nav-bar class="bar-custom">
+        <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
     <ion-content>
         <div class="list">
             <label class="item item-input item-stacked-label">
-                <span class="input-label custom">Student Name</span>
-                <input type="text" placeholder="Student Name" ng-model="newRegistration.Name">
+                <span class="input-label custom">Full Name</span>
+                <input type="text" placeholder="Full Name" ng-model="newRegistration.Name">
             </label>
+            <div class="item item-button-right custom">
+                Date of Birth
+                <button class="button button-custom" ng-click="openDOBPicker();">
+                    {{newRegistration.DateOfBirth | date: 'dd-MMM-yyyy'}}
+                </button>
+            </div>
             <label class="item item-input item-stacked-label">
                 <span class="input-label custom">Phone Number</span>
                 <input type="number" placeholder="Phone Number" ng-model="newRegistration.PhoneNumber">
@@ -23,7 +30,15 @@
                 <span class="input-label custom">Passport Number</span>
                 <input type="text" placeholder="Passport Number" ng-model="newRegistration.PassportNumber">
             </label>
-            <div class="item">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label custom">Password</span>
+                <input type="password" placeholder="Password" ng-model="newRegistration.Password">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label custom">Confirm Password</span>
+                <input type="text" placeholder="Confirm Password" ng-model="confirm.ConfirmPassword">
+            </label>
+            <!-- <div class="item">
                 <div class="row" style="padding-left:0px;padding-top:0px;">
                     <div class="col custom" style="font-size:16px;padding-left:0px;padding-top:0px;">
                         VISA Validity Details
@@ -103,7 +118,7 @@
                         <img ng-src="{{newRegistration.RegionalPermitImageURL}}" alt="No picture detected" width="100%;">
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col">
                     <button class="button button-custom loginButton" ng-click="register()">Register</button>
