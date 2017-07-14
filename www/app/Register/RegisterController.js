@@ -1,6 +1,6 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('RegisterController', function($scope, $state, RegisterFactory, ionicDatePicker, ionicToast, $ionicHistory) {
+    .controller('RegisterController', function($scope, $state, RegisterFactory, ionicDatePicker, ionicToast, $ionicHistory, $cordovaCamera) {
 
         $scope.newRegistration = {
             Id: null,
@@ -10,6 +10,7 @@ angular.module('sgRegistrationApp')
             College: null,
             Course: null,
             PassportNumber: null,
+            PassportImageBytes: null,
             Password: null
         };
 
@@ -39,6 +40,7 @@ angular.module('sgRegistrationApp')
                 $scope.newRegistration.College == null || $scope.newRegistration.College == "" ||
                 $scope.newRegistration.Course == null || $scope.newRegistration.Course == "" ||
                 $scope.newRegistration.PassportNumber == null || $scope.newRegistration.PassportNumber == "" ||
+                $scope.newRegistration.PassportImageBytes == null || $scope.newRegistration.PassportImageBytes == "" ||
                 $scope.newRegistration.Password == null || $scope.newRegistration.Password == "" ||
                 $scope.confirm.ConfirmPassword == null || $scope.confirm.ConfirmPassword == "") {
                 ionicToast.show('Please enter all the details', 'bottom', false, 2500);
@@ -59,5 +61,21 @@ angular.module('sgRegistrationApp')
                         });
                 }
             }
+        };
+
+        $scope.scanPassport = function() {
+            var options = {
+                quality: 40,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                encodingType: Camera.EncodingType.JPEG,
+            };
+            $cordovaCamera.getPicture(options)
+                .then(function(image) {
+                        $scope.newRegistration.PassportImageBytes = "data:image/jpeg;base64," + image;
+                    },
+                    function(err) {
+                        console.log(err);
+                    });
         };
     });

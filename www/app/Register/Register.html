@@ -30,6 +30,16 @@
                 <span class="input-label custom">Passport Number</span>
                 <input type="text" placeholder="Passport Number" ng-model="newRegistration.PassportNumber">
             </label>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-custom loginButton" ng-click="scanPassport()">Scan Passport</button>
+                </div>
+            </div>
+            <div class="row" ng-if="newRegistration.PassportImageBytes">
+                <div class="col">
+                    <img ng-src="{{newRegistration.PassportImageBytes}}" alt="No picture detected" width="100%;">
+                </div>
+            </div>
             <label class="item item-input item-stacked-label">
                 <span class="input-label custom">Password</span>
                 <input type="password" placeholder="Password" ng-model="newRegistration.Password">
