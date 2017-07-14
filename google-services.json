@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1011430545698",
+    "firebase_url": "https://studentgnan.firebaseio.com",
+    "project_id": "studentgnan",
+    "storage_bucket": "studentgnan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011430545698:android:6a24a8eefcf9599a",
+        "android_client_info": {
+          "package_name": "com.studentgnan.www"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011430545698-ifdcujavhbksr4bstg5037m81m81b4vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXvExAjxS-AIc76hcHRxmMyUr_1wUd9Bs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,7 +6,7 @@ angular.module('sgRegistrationApp')
             PhoneNumber: null,
             Password: '',
             DeviceId: null,
-            AppVersion: LoginFactory.AppVersion,
+            AppVersion: '1.0.0',
             OperatingSystem: ionic.Platform.platform()
         };
 
@@ -16,7 +16,7 @@ angular.module('sgRegistrationApp')
         $scope.performLogin = function() {
             LoginFactory.login($scope.loginData)
                 .then(function(success) {
-                    if (success.data.Code == "E010") {
+                    if (success.data.Code == "E004") {
                         $scope.errorMessage = success.data.Message;
                         $scope.showUpdateButton = true;
                     } else if (success.data.Code != "S001") {
@@ -24,7 +24,7 @@ angular.module('sgRegistrationApp')
                     } else {
                         $scope.errorMessage = null;
                         $scope.showUpdateButton = false;
-                        $state.go("menu.profile");
+                        $state.go("menu.home");
                     }
                 }, function(error) {
                     ionicToast.show(error, 'bottom', false, 2500);
@@ -43,7 +43,7 @@ angular.module('sgRegistrationApp')
 
         $scope.$on('deviceRegistered', function(event) {
             $scope.loginData.DeviceId = LoginFactory.DeviceId;
-            $scope.loginData.AdminAppVersion = LoginFactory.AdminAppVersion;
+            $scope.loginData.AppVersion = LoginFactory.AppVersion;
             if (localStorage.getItem("isLoggedIn")) {
                 $scope.loginData.PhoneNumber = parseInt(localStorage.getItem("PhoneNumber"));
                 $scope.loginData.Password = localStorage.getItem("Password");

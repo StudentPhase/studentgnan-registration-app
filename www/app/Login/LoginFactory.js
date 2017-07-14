@@ -5,6 +5,7 @@ angular.module('sgRegistrationApp').factory('LoginFactory', function($q, $http) 
         loggedInUser: {},
         isAuthenticated: false,
         DeviceId: null,
+        AppVersion: null,
     };
 
     // var website = 'http://localhost:5000';
@@ -16,16 +17,18 @@ angular.module('sgRegistrationApp').factory('LoginFactory', function($q, $http) 
         var d = $q.defer();
         $http({
             method: 'POST',
-            url: URL + '/login',
+            url: URL + '/studentLogin',
             data: obj,
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(function(success) {
-            factory.loggedInUser = success.data.Data;
-            $http.defaults.headers.common['Authorization'] = success.data.Data.Token;
-            factory.isAuthenticated = true;
-            factory.storeLoginSession();
+            if (success.data.Data != null) {
+                factory.loggedInUser = success.data.Data[0];
+                $http.defaults.headers.common['Authorization'] = success.data.Data[0].Token;
+                factory.isAuthenticated = true;
+                factory.storeLoginSession();
+            }
             d.resolve(success);
         }, function(error) {
             factory.isAuthenticated = false;

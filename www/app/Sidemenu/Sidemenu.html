@@ -1,0 +1,31 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-custom">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-content class="sidemenu-content">
+            <div class="sidemenu-header-container">
+                <div class="sidemenu-header logo-image">
+                    <div ng-if="loggedInUser.PictureURL != null" class="logo-image profile-pic" ng-style="{'background-image':'url(' + loggedInUser.PictureURL + ')'}"></div>
+                    <div ng-if="loggedInUser.PictureURL == null" class="logo-image profile-pic" style="background-image:url('app/images/man.png')"></div>
+                </div>
+                <div class="user-name">{{loggedInUser.Name}}</div>
+            </div>
+            <ion-list>
+                <ion-item class="item-icon-left" menu-close href="#/home">
+                    <i class="icon custom ion-home"></i> Home
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href ng-click="logout()">
+                    <i class="icon custom ion-power"></i> Logout
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

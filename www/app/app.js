@@ -9,7 +9,7 @@ angular.module('sgRegistrationApp', ['ionic',
     'ngCordova'
 ])
 
-.run(function($ionicPlatform, $rootScope, $ionicLoading, $state, $ionicHistory, $cordovaNetwork, ionicToast) {
+.run(function($ionicPlatform, $rootScope, $ionicLoading, $state, $ionicHistory, $cordovaNetwork, ionicToast, LoginFactory) {
     $ionicPlatform.ready(function() {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -24,6 +24,32 @@ angular.module('sgRegistrationApp', ['ionic',
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
+
+        FCMPlugin.getToken(function(token) {
+            LoginFactory.DeviceId = token;
+            cordova.getAppVersion(function(version) {
+                LoginFactory.AppVersion = version;
+                $rootScope.$broadcast('deviceRegistered');
+            });
+        });
+
+        FCMPlugin.onNotification(
+            function(data) {
+                if (data.wasTapped) {
+                    //Notification was received on device tray and tapped by the user. 
+                    console.log(data);
+                } else {
+                    //Notification was received in foreground. Maybe the user needs to be notified. 
+                    console.log(JSON.stringify(data));
+                }
+            },
+            function(msg) {
+                console.log('onNotification callback successfully registered: ' + msg);
+            },
+            function(err) {
+                console.log('Error registering onNotification callback: ' + err);
+            });
+
     });
 
     $rootScope.$on('loading:show', function() {
@@ -73,11 +99,20 @@ angular.module('sgRegistrationApp', ['ionic',
             templateUrl: 'app/Register/Register.html',
             controller: 'RegisterController'
         })
-        .state('profile', {
-            url: '/profile',
+        .state('menu', {
+            abstract: true,
+            templateUrl: 'app/Sidemenu/Sidemenu.html',
+            controller: 'SidemenuController'
+        })
+        .state('menu.home', {
+            url: '/home',
             cache: false,
-            templateUrl: 'app/Profile/Profile.html',
-            controller: 'ProfileController'
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Home/Home.html',
+                    controller: 'HomeController'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/login');
