@@ -68,7 +68,6 @@ font-size: 20px;
 .sidemenu-header {
     height: 110px;
     padding: 10px 10px;
-    background-image: url('../images/sidemenu_bg.jpg');
 }
 .logo-image {
     background-repeat: no-repeat;
@@ -76,7 +75,7 @@ font-size: 20px;
     background-size: cover;
 }
 .sidemenu-header-container {
-    background-image: url(../images/sidemenu_bg.jpg);
+    background-image: url(../images/sidemenu_bg.png);
 }
 .popover {
     height: auto !important;
@@ -96,7 +95,30 @@ font-size: 20px;
 }
 .user-name {
     padding: 0 10px 10px 10px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: #444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.banner-slider {
+    height: 180px;
+}
+.slider-pager .slider-pager-page {
+    color: #f77f00;
+}
+.profile-top {
+    height: 200px;
+    background: #f77f00;
+    padding-top: 35px;
+}
+.profile-name {
+    padding: 5px 10px 0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

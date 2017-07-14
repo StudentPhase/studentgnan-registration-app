@@ -1,0 +1,32 @@
+<ion-view title="Profile">
+    <ion-content>
+        <div class="profile-top">
+            <div style="margin:auto;" ng-if="userDetails.PictureURL != null" class="logo-image profile-pic" ng-style="{'background-image':'url(' + userDetails.PictureURL + ')'}"></div>
+            <div ng-if="userDetails.PictureURL == null" class="logo-image profile-pic" style="background-image:url('app/images/man.png');margin:auto;"></div>
+            <div class="text-center profile-name">
+                {{userDetails.Name}}
+            </div>
+            <div class="text-center profile-name">
+                {{userDetails.College}}
+            </div>
+        </div>
+        <ion-list can-swipe="true">
+            <ion-item>
+                <h2 class="custom">Course</h2>
+                <p>{{userDetails.Course}}</p>
+            </ion-item>
+            <ion-item>
+                <h2 class="custom">Date of Birth</h2>
+                <p>{{userDetails.DateOfBirth | date:'dd/MMM/yyyy'}}</p>
+            </ion-item>
+            <ion-item>
+                <h2 class="custom">Phone Number</h2>
+                <p>{{userDetails.PhoneNumber}}</p>
+            </ion-item>
+            <ion-item>
+                <h2 class="custom">Passport Number</h2>
+                <p>{{userDetails.PassportNumber}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

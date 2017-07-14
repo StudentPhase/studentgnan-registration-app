@@ -11,8 +11,11 @@
     </ion-side-menu-content>
     <ion-side-menu side="left">
         <ion-content class="sidemenu-content">
-            <div class="sidemenu-header-container">
-                <div class="sidemenu-header logo-image">
+            <div class="sidemenu-header-container logo-image" menu-close ng-click="profile()">
+                <button class="button button-clear button-dark pull-right" style="margin-top:46.5px;">
+                    <i class="icon ion-arrow-right-b" style="color:white;"></i>
+                </button>
+                <div class="sidemenu-header">
                     <div ng-if="loggedInUser.PictureURL != null" class="logo-image profile-pic" ng-style="{'background-image':'url(' + loggedInUser.PictureURL + ')'}"></div>
                     <div ng-if="loggedInUser.PictureURL == null" class="logo-image profile-pic" style="background-image:url('app/images/man.png')"></div>
                 </div>

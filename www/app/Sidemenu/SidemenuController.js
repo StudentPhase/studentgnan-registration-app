@@ -10,4 +10,8 @@ angular.module('sgRegistrationApp')
             LoginFactory.logout();
             $state.go('login');
         };
+
+        $scope.profile = function() {
+            $state.go('menu.profile');
+        };
     });

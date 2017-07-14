@@ -54,7 +54,7 @@ angular.module('sgRegistrationApp', ['ionic',
 
     $rootScope.$on('loading:show', function() {
         $ionicLoading.show({
-            template: '<ion-spinner icon="android"></ion-spinner>',
+            template: '<ion-spinner class="spinner-custom" icon="android"></ion-spinner>',
             animation: 'fade-in',
             showBackdrop: false,
         });
@@ -111,6 +111,16 @@ angular.module('sgRegistrationApp', ['ionic',
                 'menuContent': {
                     templateUrl: 'app/Home/Home.html',
                     controller: 'HomeController'
+                }
+            }
+        })
+        .state('menu.profile', {
+            url: '/profile',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Profile/Profile.html',
+                    controller: 'ProfileController'
                 }
             }
         });
