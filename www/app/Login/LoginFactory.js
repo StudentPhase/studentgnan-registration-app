@@ -8,8 +8,8 @@ angular.module('sgRegistrationApp').factory('LoginFactory', function($q, $http) 
         AppVersion: null,
     };
 
-    var website = 'http://localhost:5000';
-    // var website = 'https://studentgnan-api-dev.herokuapp.com';
+    // var website = 'http://localhost:5000';
+    var website = 'https://studentgnan-api-dev.herokuapp.com';
     // var website = 'https://studentgnan-api.herokuapp.com';
     var URL = website;
 
