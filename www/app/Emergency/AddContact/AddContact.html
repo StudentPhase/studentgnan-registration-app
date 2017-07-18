@@ -1,0 +1,27 @@
+<ion-view title="Add Contact">
+    <ion-content>
+        <div class="list">
+            <form name="eventForm">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Contact Name</span>
+                    <input type="text" name="eventName" placeholder="Contact Name" ng-model="newContact.Name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Contact Phone Number</span>
+                    <input type="number" name="phoneNumber" placeholder="Contact Phone Number" ng-model="newContact.PhoneNumber">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Address</span>
+                    <textarea placeholder="Address" name="address" rows="5" class="textArea" ng-model="newContact.Address"></textarea>
+                </label>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="button button-custom loginButton" ng-click="create()">
+                    Create
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

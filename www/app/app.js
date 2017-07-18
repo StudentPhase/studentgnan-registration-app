@@ -123,6 +123,26 @@ angular.module('sgRegistrationApp', ['ionic',
                     controller: 'ProfileController'
                 }
             }
+        })
+        .state('menu.emergency', {
+            url: '/emergency',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Emergency/EmergencyContacts/EmergencyContacts.html',
+                    controller: 'EmergencyContactsController'
+                }
+            }
+        })
+        .state('menu.addEmergencyContact', {
+            url: '/addEmergencyContact',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Emergency/AddContact/AddContact.html',
+                    controller: 'AddContactController'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/login');
