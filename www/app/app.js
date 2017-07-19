@@ -143,6 +143,16 @@ angular.module('sgRegistrationApp', ['ionic',
                     controller: 'AddContactController'
                 }
             }
+        })
+        .state('menu.contactDetails', {
+            url: '/contactDetails',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Emergency/ContactDetails/ContactDetails.html',
+                    controller: 'ContactDetailsController'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/login');

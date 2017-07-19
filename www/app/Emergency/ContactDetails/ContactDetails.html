@@ -1,0 +1,23 @@
+<ion-view title="{{contactDetails.Name}}">
+    <ion-content>
+        <div class="contact-banner logo-image"></div>
+        <div class="list">
+            <div class="item item-button-right">
+                <h2>{{contactDetails.Area}}</h2>
+            </div>
+            <div class="item item-button-right">
+                <h2>{{contactDetails.Address}}</h2>
+                <button class="button button-clear button-custom" ng-click="navigate(contactDetails.Address)">
+                    <i class="icon ion-navigate"></i>
+                </button>
+            </div>
+            <div class="item item-button-right">
+                <h2>{{contactDetails.PhoneNumber}}</h2>
+                <button class="button button-clear button-custom" ng-click="call(contactDetails.PhoneNumber)">
+                    <i class="icon ion-ios-telephone"></i>
+                </button>
+            </div>
+        </div>
+        <div id="map"></div>
+    </ion-content>
+</ion-view>

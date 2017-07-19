@@ -4,11 +4,6 @@ angular.module('sgRegistrationApp')
 
         $scope.contacts = [];
 
-        $scope.call = function(contact) {
-            var call = "tel:" + contact.PhoneNumber;
-            document.location.href = call;
-        };
-
         $scope.getAllContacts = function() {
             EmergencyContactFactory.getAllEmergencyContacts()
                 .then(function(success) {
@@ -24,6 +19,11 @@ angular.module('sgRegistrationApp')
 
         $scope.addContact = function() {
             $state.go('menu.addEmergencyContact');
+        };
+
+        $scope.contactSelected = function(contact) {
+            EmergencyContactFactory.selectedContact = contact;
+            $state.go('menu.contactDetails');
         };
 
         $scope.getAllContacts();

@@ -1,15 +1,30 @@
 'use strict';
 
 angular.module('sgRegistrationApp').factory('EmergencyContactFactory', function($q, $http, LoginFactory) {
-    var factory = {};
+    var factory = {
+        selectedContact: null
+    };
 
     var URL = LoginFactory.getBaseUrl() + '/secure';
 
-    factory.getAllEmergencyContacts = function(obj) {
+    factory.getAllEmergencyContacts = function() {
         var d = $q.defer();
         $http({
             method: 'GET',
             url: URL + '/emergencyContact',
+        }).then(function(success) {
+            d.resolve(success);
+        }, function(error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    factory.getAllCategories = function() {
+        var d = $q.defer();
+        $http({
+            method: 'GET',
+            url: URL + '/category',
         }).then(function(success) {
             d.resolve(success);
         }, function(error) {

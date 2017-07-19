@@ -2,6 +2,14 @@
     <ion-content>
         <div class="list">
             <form name="eventForm">
+                <label class="item item-input item-select">
+                    <div class="input-label custom">
+                        Choose Category
+                    </div>
+                    <select ng-model="newContact.CategoryId" ng-options="category.Id as category.Name for category in categories" ng-change="courseSelected(selected.course)">
+                        <option value="">--pick one--</option>
+                    </select>
+                </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label custom">Contact Name</span>
                     <input type="text" name="eventName" placeholder="Contact Name" ng-model="newContact.Name">
@@ -9,6 +17,10 @@
                 <label class="item item-input item-stacked-label">
                     <span class="input-label custom">Contact Phone Number</span>
                     <input type="number" name="phoneNumber" placeholder="Contact Phone Number" ng-model="newContact.PhoneNumber">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Area</span>
+                    <input type="text" name="eventName" placeholder="Area" ng-model="newContact.Area">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label custom">Address</span>

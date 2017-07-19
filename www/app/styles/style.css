@@ -122,3 +122,11 @@ font-size: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+#map {
+    width: 100%;
+    height: 100%;
+}
+.contact-banner {
+    background-image: url(../images/hcg.jpg);
+    height: 200px;
+}
