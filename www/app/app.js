@@ -125,7 +125,7 @@ angular.module('sgRegistrationApp', ['ionic',
             }
         })
         .state('menu.emergency', {
-            url: '/emergency',
+            url: '/emergency/:categoryId',
             cache: false,
             views: {
                 'menuContent': {
@@ -151,6 +151,36 @@ angular.module('sgRegistrationApp', ['ionic',
                 'menuContent': {
                     templateUrl: 'app/Emergency/ContactDetails/ContactDetails.html',
                     controller: 'ContactDetailsController'
+                }
+            }
+        })
+        .state('menu.offerList', {
+            url: '/offerList/:categoryId',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Offers/OfferList/OfferList.html',
+                    controller: 'OfferListController'
+                }
+            }
+        })
+        .state('menu.createOffer', {
+            url: '/createOffer',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Offers/CreateOffer/CreateOffer.html',
+                    controller: 'CreateOfferController'
+                }
+            }
+        })
+        .state('menu.viewOffer', {
+            url: '/viewOffer',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Offers/ViewOffer/ViewOffer.html',
+                    controller: 'ViewOfferController'
                 }
             }
         });

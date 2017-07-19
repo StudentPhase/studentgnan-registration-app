@@ -1,27 +1,33 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('AddContactController', function($scope, $state, EmergencyContactFactory, ionicToast, $ionicHistory) {
+    .controller('CreateOfferController', function($scope, $state, OfferFactory, ionicToast, $ionicHistory) {
 
-        $scope.newContact = {
+        $scope.newOffer = {
             Id: null,
-            Name: null,
+            Title: null,
+            Description: null,
+            VideoURL: null,
+            ImageURL: null,
             Address: null,
             PhoneNumber: null,
-            Area: null,
+            Website: null,
+            OfferCode: null,
             CategoryId: null
         };
 
         $scope.categories = [];
 
         $scope.create = function() {
-            if ($scope.newContact.Name == "" || $scope.newContact.Name == null ||
-                $scope.newContact.Address == "" || $scope.newContact.Address == null ||
-                $scope.newContact.PhoneNumber == undefined || $scope.newContact.PhoneNumber == null ||
-                $scope.newContact.Area == "" || $scope.newContact.Area == null ||
-                $scope.newContact.CategoryId == undefined || $scope.newContact.CategoryId == null) {
+            if ($scope.newOffer.Title == "" || $scope.newOffer.Title == null ||
+                $scope.newOffer.Description == "" || $scope.newOffer.Description == null ||
+                $scope.newOffer.Address == "" || $scope.newOffer.Address == null ||
+                $scope.newOffer.PhoneNumber == undefined || $scope.newOffer.PhoneNumber == null ||
+                $scope.newOffer.Website == "" || $scope.newOffer.Website == null ||
+                $scope.newOffer.OfferCode == "" || $scope.newOffer.OfferCode == null ||
+                $scope.newOffer.CategoryId == undefined || $scope.newOffer.CategoryId == null) {
                 ionicToast.show('Please enter all the fields', 'bottom', false, 2500);
             } else {
-                EmergencyContactFactory.addEmergencyContact($scope.newContact)
+                OfferFactory.addOffer($scope.newOffer)
                     .then(function(success) {
                         if (success.data.Code != "S001") {
                             ionicToast.show(success.data.Message, 'bottom', false, 2500);
@@ -39,7 +45,7 @@ angular.module('sgRegistrationApp')
         };
 
         $scope.getAllCategories = function() {
-            EmergencyContactFactory.getAllCategories()
+            OfferFactory.getAllCategories()
                 .then(function(success) {
                     if (success.data.Code != "S001") {
                         ionicToast.show(success.data.Message, 'bottom', false, 2500);

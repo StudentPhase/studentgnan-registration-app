@@ -1,0 +1,15 @@
+<ion-view title="Offers">
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon ion-plus-round" ng-click="addOffer()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list">
+            <a class="item item-avatar item-icon-right" href ng-repeat="offer in offers" ng-click="offerSelected(offer)">
+                <img src="app/images/hcg.jpg">
+                <h2>{{offer.Title}}</h2>
+                <p style="white-space:normal;">{{offer.Description}}</p>
+                <i class="icon ion-chevron-right custom"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

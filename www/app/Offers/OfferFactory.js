@@ -1,17 +1,17 @@
 'use strict';
 
-angular.module('sgRegistrationApp').factory('EmergencyContactFactory', function($q, $http, LoginFactory) {
+angular.module('sgRegistrationApp').factory('OfferFactory', function($q, $http, LoginFactory) {
     var factory = {
-        selectedContact: null
+        selectedOffer: null
     };
 
     var URL = LoginFactory.getBaseUrl() + '/secure';
 
-    factory.getAllEmergencyContacts = function(categoryId) {
+    factory.getAllOffers = function(categoryId) {
         var d = $q.defer();
         $http({
             method: 'GET',
-            url: URL + '/emergencyContact/' + categoryId,
+            url: URL + '/offer/' + categoryId,
         }).then(function(success) {
             d.resolve(success);
         }, function(error) {
@@ -33,11 +33,11 @@ angular.module('sgRegistrationApp').factory('EmergencyContactFactory', function(
         return d.promise;
     };
 
-    factory.addEmergencyContact = function(obj) {
+    factory.addOffer = function(obj) {
         var d = $q.defer();
         $http({
             method: 'POST',
-            url: URL + '/emergencyContact',
+            url: URL + '/offer',
             data: obj,
             headers: {
                 'Content-Type': 'application/json'

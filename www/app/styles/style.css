@@ -130,3 +130,9 @@ font-size: 20px;
     background-image: url(../images/hcg.jpg);
     height: 200px;
 }
+.category-image {
+    width: 50px;
+}
+.category-item {
+    padding: 10px;
+}

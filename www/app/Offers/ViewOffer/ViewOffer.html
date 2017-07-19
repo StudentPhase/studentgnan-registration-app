@@ -1,0 +1,22 @@
+<ion-view title="{{offerDetails.Title}}">
+    <ion-content>
+        <div class="contact-banner logo-image"></div>
+        <div class="list">
+            <div class="item item-button-right">
+                <h2>{{offerDetails.Description}}</h2>
+            </div>
+            <div class="item item-button-right">
+                <h2>{{offerDetails.Address}}</h2>
+                <button class="button button-clear button-custom" ng-click="navigate(offerDetails.Address)">
+                    <i class="icon ion-navigate"></i>
+                </button>
+            </div>
+            <div class="item item-button-right">
+                <h2>{{offerDetails.PhoneNumber}}</h2>
+                <button class="button button-clear button-custom" ng-click="call(offerDetails.PhoneNumber)">
+                    <i class="icon ion-ios-telephone"></i>
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

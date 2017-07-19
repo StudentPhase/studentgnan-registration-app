@@ -1,0 +1,61 @@
+<ion-view title="Create Offer">
+    <ion-content>
+        <div class="list">
+            <form name="eventForm">
+                <label class="item item-input item-select">
+                    <div class="input-label custom">
+                        Choose Category
+                    </div>
+                    <select ng-model="newOffer.CategoryId" ng-options="category.Id as category.Name for category in categories" ng-change="courseSelected(selected.course)">
+                        <option value="">--pick one--</option>
+                    </select>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Title</span>
+                    <input type="text" name="eventName" placeholder="Title" ng-model="newOffer.Title">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Description</span>
+                    <textarea placeholder="Description" name="description" rows="5" class="textArea" ng-model="newOffer.Description"></textarea>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Video Link</span>
+                    <input type="text" name="eventName" placeholder="Video Link" ng-model="newOffer.VideoURL">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Contact Phone Number</span>
+                    <input type="number" name="phoneNumber" placeholder="Contact Phone Number" ng-model="newOffer.PhoneNumber">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Website</span>
+                    <input type="text" name="website" placeholder="Website" ng-model="newOffer.Website">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Address</span>
+                    <textarea placeholder="Address" name="address" rows="5" class="textArea" ng-model="newOffer.Address"></textarea>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label custom">Offer Code</span>
+                    <input type="text" name="offercode" placeholder="Offer Code" ng-model="newOffer.OfferCode">
+                </label>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="selectOfferImage()">Select Offer Image</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="newOffer.ImageURL">
+                    <div class="col">
+                        <img ng-src="{{newOffer.ImageURL}}" alt="No picture detected" width="100%;">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="button button-custom loginButton" ng-click="create()">
+                    Create
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

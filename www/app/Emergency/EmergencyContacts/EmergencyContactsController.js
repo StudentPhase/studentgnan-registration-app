@@ -1,11 +1,11 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('EmergencyContactsController', function($scope, $state, EmergencyContactFactory, ionicToast) {
+    .controller('EmergencyContactsController', function($scope, $state, $stateParams, EmergencyContactFactory, ionicToast) {
 
         $scope.contacts = [];
 
         $scope.getAllContacts = function() {
-            EmergencyContactFactory.getAllEmergencyContacts()
+            EmergencyContactFactory.getAllEmergencyContacts($stateParams.categoryId)
                 .then(function(success) {
                     if (success.data.Code != "S001") {
                         ionicToast.show(success.data.Message, 'bottom', false, 2500);
