@@ -1,0 +1,23 @@
+<ion-view title="Notifications">
+    <ion-content>
+        <div class="list" style="margin-bottom:0px;">
+            <form name="eventForm">
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label custom">Title</span>
+                        <input type="text" name="eventName" placeholder="Title" ng-model="newNotification.Title">
+                    </label>
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label custom">Description</span>
+                        <textarea placeholder="Description" name="eventDescription" rows="5" class="textArea" ng-model="newNotification.Description"></textarea>
+                    </label>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="button button-custom loginButton" ng-click="sendCustomNotification()">
+                    Send
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

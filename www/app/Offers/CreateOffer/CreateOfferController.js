@@ -32,7 +32,7 @@ angular.module('sgRegistrationApp')
                         if (success.data.Code != "S001") {
                             ionicToast.show(success.data.Message, 'bottom', false, 2500);
                         } else {
-                            ionicToast.show(success.data.Message, 'bottom', false, 2500);
+                            ionicToast.show('Offer created successfully', 'bottom', false, 2500);
                             $ionicHistory.nextViewOptions({
                                 disableBack: true
                             });

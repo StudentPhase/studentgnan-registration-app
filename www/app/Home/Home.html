@@ -24,9 +24,9 @@
                     Show More
                 </div> -->
             </div>
-            <div class="item" style="overflow-x:scroll;text-overflow:initial;padding:0px;">
+            <div class="item item-text-wrap" style="padding:0px;">
                 <div class="row">
-                    <div class="category-item text-center" ng-repeat="category in categories" ng-click="emergencyCategorySelected(category)">
+                    <div class="col text-center" ng-repeat="category in categories" ng-click="emergencyCategorySelected(category)">
                         <img ng-src="{{category.LogoURL}}" alt="" class="category-image">
                         <div class="category-name">
                             {{category.Name}}

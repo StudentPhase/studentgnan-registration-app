@@ -183,6 +183,16 @@ angular.module('sgRegistrationApp', ['ionic',
                     controller: 'ViewOfferController'
                 }
             }
+        })
+        .state('menu.sendNotification', {
+            url: '/sendNotification',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Notifications/Notifications.html',
+                    controller: 'NotificationsController'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/login');
