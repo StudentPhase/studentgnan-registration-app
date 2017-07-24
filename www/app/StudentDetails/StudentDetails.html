@@ -8,10 +8,16 @@
             <ion-item>
                 <h2 class="custom">Email</h2>
                 <p>{{studentDetails.Email}}</p>
+                <ion-option-button class="button-balanced" ng-click="editEmail(studentDetails.Email)">
+                    <i class="icon ion-edit" style="margin: auto"></i>
+                </ion-option-button>
             </ion-item>
             <ion-item>
                 <h2 class="custom">Address</h2>
                 <p>{{studentDetails.Address}}</p>
+                <ion-option-button class="button-balanced" ng-click="editAddress(studentDetails.Address)">
+                    <i class="icon ion-edit" style="margin: auto"></i>
+                </ion-option-button>
             </ion-item>
             <ion-item>
                 <h2 class="custom">College</h2>
@@ -34,7 +40,7 @@
                 <ion-option-button class="button-custom" ng-click="call(studentDetails.PhoneNumber)">
                     <i class="icon ion-ios-telephone" style="margin: auto"></i>
                 </ion-option-button>
-                <ion-option-button class="button-balanced" ng-click="editPhoneNumber(studentDetails.PhoneNumber, 1)">
+                <ion-option-button class="button-balanced" ng-click="editPhoneNumber(studentDetails.PhoneNumber)">
                     <i class="icon ion-edit" style="margin: auto"></i>
                 </ion-option-button>
             </ion-item>

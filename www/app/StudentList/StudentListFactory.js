@@ -50,6 +50,40 @@ angular.module('sgRegistrationApp').factory('StudentListFactory', function($q, $
         return d.promise;
     };
 
+    factory.updateEmail = function(obj) {
+        var d = $q.defer();
+        $http({
+            method: 'PUT',
+            url: URL + '/student/updateEmail',
+            data: obj,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(success) {
+            d.resolve(success);
+        }, function(error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    factory.updateAddress = function(obj) {
+        var d = $q.defer();
+        $http({
+            method: 'PUT',
+            url: URL + '/student/updateAddress',
+            data: obj,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(success) {
+            d.resolve(success);
+        }, function(error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
     factory.resetPassword = function(obj) {
         var d = $q.defer();
         $http({

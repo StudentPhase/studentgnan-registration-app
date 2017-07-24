@@ -10,6 +10,16 @@ angular.module('sgRegistrationApp')
             PhoneNumber: null
         };
 
+        $scope.updateEmail = {
+            StudentId: null,
+            Email: null
+        };
+
+        $scope.updateAddress = {
+            StudentId: null,
+            Address: null
+        };
+
         $scope.updateDOB = {
             StudentId: null,
             DateOfBirth: moment().format('YYYY-MM-DD')
@@ -56,7 +66,7 @@ angular.module('sgRegistrationApp')
             document.location.href = call;
         };
 
-        $scope.editPhoneNumber = function(PhoneNumber, numberType) {
+        $scope.editPhoneNumber = function(PhoneNumber) {
             var myPopup = $ionicPopup.show({
                 template: '<input type="number" ng-model="updatePhoneNumber.PhoneNumber">',
                 title: "Enter updated phone number",
@@ -93,8 +103,101 @@ angular.module('sgRegistrationApp')
                                 ionicToast.show('Successfully updated the phone number', 'bottom', false, 2500);
                                 $ionicListDelegate.closeOptionButtons();
                                 $scope.updatePhoneNumber.PhoneNumber = null;
-                                $scope.updatePhoneNumber.NumberType = null;
                                 $scope.updatePhoneNumber.StudentId = null;
+                                $scope.getStudentDetails();
+                                myPopup.close();
+                            }
+                        }, function(error) {
+                            ionicToast.show(error, 'bottom', false, 2500);
+                        });
+                }
+            });
+        };
+
+        $scope.editEmail = function(Email) {
+            var myPopup = $ionicPopup.show({
+                template: '<input type="email" ng-model="updateEmail.Email">',
+                title: "Enter updated email",
+                scope: $scope,
+                buttons: [{
+                        text: 'Cancel'
+                    },
+                    {
+                        text: '<b>Update</b>',
+                        type: 'button-custom',
+                        onTap: function(e) {
+                            if ($scope.updateEmail.Email == "" || $scope.updateEmail.Email == null) {
+                                ionicToast.show('Please enter proper email', 'bottom', false, 2500);
+                                e.preventDefault();
+                            } else {
+                                return $scope.updateEmail;
+                            }
+                        }
+                    }
+                ]
+            });
+
+            myPopup.then(function(res) {
+                if (res == undefined) {
+                    myPopup.close();
+                } else {
+                    $scope.updateEmail.StudentId = $scope.studentDetails.Id;
+                    StudentListFactory.updateEmail($scope.updateEmail)
+                        .then(function(success) {
+                            if (success.data.Code != "S001") {
+                                ionicToast.show(success.data.Message, 'bottom', false, 2500);
+                            } else {
+                                ionicToast.show('Successfully updated the email', 'bottom', false, 2500);
+                                $ionicListDelegate.closeOptionButtons();
+                                $scope.updateEmail.Email = null;
+                                $scope.updateEmail.StudentId = null;
+                                $scope.getStudentDetails();
+                                myPopup.close();
+                            }
+                        }, function(error) {
+                            ionicToast.show(error, 'bottom', false, 2500);
+                        });
+                }
+            });
+        };
+
+        $scope.editAddress = function(Email) {
+            var myPopup = $ionicPopup.show({
+                template: '<textarea rows="5" ng-model="updateAddress.Address"></textarea>',
+                title: "Enter updated email",
+                scope: $scope,
+                buttons: [{
+                        text: 'Cancel'
+                    },
+                    {
+                        text: '<b>Update</b>',
+                        type: 'button-custom',
+                        onTap: function(e) {
+                            if ($scope.updateAddress.Address == "" || $scope.updateAddress.Address == null) {
+                                ionicToast.show('Please enter proper address', 'bottom', false, 2500);
+                                e.preventDefault();
+                            } else {
+                                return $scope.updateAddress;
+                            }
+                        }
+                    }
+                ]
+            });
+
+            myPopup.then(function(res) {
+                if (res == undefined) {
+                    myPopup.close();
+                } else {
+                    $scope.updateAddress.StudentId = $scope.studentDetails.Id;
+                    StudentListFactory.updateAddress($scope.updateAddress)
+                        .then(function(success) {
+                            if (success.data.Code != "S001") {
+                                ionicToast.show(success.data.Message, 'bottom', false, 2500);
+                            } else {
+                                ionicToast.show('Successfully updated the address', 'bottom', false, 2500);
+                                $ionicListDelegate.closeOptionButtons();
+                                $scope.updateAddress.Address = null;
+                                $scope.updateAddress.StudentId = null;
                                 $scope.getStudentDetails();
                                 myPopup.close();
                             }
