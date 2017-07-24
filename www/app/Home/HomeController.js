@@ -5,10 +5,20 @@ angular.module('sgRegistrationApp')
         $rootScope.$broadcast('userLoggedIn');
         $ionicSlideBoxDelegate.slide(0);
         $scope.categories = [];
-        $scope.offerCategories = []
+        $scope.offerCategories = [];
+        $scope.slides = [];
 
-        $scope.slideHasChanger = function(index) {
-            console.log(index);
+        $scope.getAllSlides = function() {
+            HomeFactory.getAllSlides()
+                .then(function(success) {
+                    if (success.data.Code != "S001") {
+                        ionicToast.show(success.data.Message, 'bottom', false, 2500);
+                    } else {
+                        $scope.slides = success.data.Data;
+                    }
+                }, function(error) {
+                    ionicToast.show(error, 'bottom', false, 2500);
+                });
         };
 
         $scope.getAllCategories = function() {
@@ -58,4 +68,5 @@ angular.module('sgRegistrationApp')
         };
 
         $scope.getAllCategories();
+        $scope.getAllSlides();
     });
