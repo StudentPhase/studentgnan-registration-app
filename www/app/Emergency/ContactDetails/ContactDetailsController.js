@@ -1,7 +1,8 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('ContactDetailsController', function($scope, $state, EmergencyContactFactory, ionicToast, $ionicHistory) {
+    .controller('ContactDetailsController', function($scope, $state, EmergencyContactFactory, ionicToast, $ionicHistory, $sce) {
         $scope.contactDetails = EmergencyContactFactory.selectedContact;
+        $scope.contactDetails.ImageURL = $sce.trustAsResourceUrl($scope.contactDetails.ImageURL);
         $scope.call = function(contact) {
             var call = "tel:" + contact;
             document.location.href = call;

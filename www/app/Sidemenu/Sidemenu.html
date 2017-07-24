@@ -25,12 +25,12 @@
                 <ion-item class="item-icon-left" menu-close href="#/home">
                     <i class="icon custom ion-home"></i> Home
                 </ion-item>
-                <ion-item class="item-icon-left" menu-close href="#/addEmergencyContact" ng-if="loggedInUser.Role != 'STUDENT'">
+                <ion-item class="item-icon-left" menu-close href="#/addEmergencyContact" ng-if="loggedInUser.Role == 'SUPERADMIN'">
                     <i class="icon custom ion-plus-round"></i> Create Emergency Contact
                 </ion-item>
-                <!-- <ion-item class="item-icon-left" menu-close href="#/createOffer" ng-if="loggedInUser.Role != 'STUDENT'">
+                <ion-item class="item-icon-left" menu-close href="#/createOffer" ng-if="loggedInUser.Role == 'SUPERADMIN'">
                     <i class="icon custom ion-plus-round"></i> Create Offer
-                </ion-item> -->
+                </ion-item>
                 <ion-item class="item-icon-left" menu-close href="#/studentList" ng-if="loggedInUser.Role != 'STUDENT'">
                     <i class="icon custom ion-university"></i> Students
                 </ion-item>

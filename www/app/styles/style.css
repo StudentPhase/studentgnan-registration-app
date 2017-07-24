@@ -12,19 +12,19 @@
 .ionic_datepicker_popup .popup-body .selected_date_full,
 .ionic_datepicker_popup .selected_date,
 .ionic_datepicker_popup .popup-buttons button {
-    background-color: #4a79c9 !important;
+    background-color: #009e60 !important;
 }
 
 .ionic_datepicker_popup .popup-body .month_select:after,
 .ionic_datepicker_popup .popup-body .year_select:after,
 .ionic_datepicker_popup .popup-body .button-clear {
-    color: #4a79c9 !important;
+    color: #009e60 !important;
 }
 
 .select_section label,
 .ionic_datepicker_popup .selected_date,
 .ionic_datepicker_popup .today {
-    border-color: #4a79c9 !important;
+    border-color: #009e60 !important;
 }
 
 .no-padding {
@@ -127,12 +127,18 @@ font-size: 20px;
     height: 100%;
 }
 .contact-banner {
-    background-image: url(../images/hcg.jpg);
-    height: 200px;
+    height: 180px;
 }
 .category-image {
     width: 50px;
 }
 .category-item {
     padding: 10px;
+    width: 25%;
+}
+.category-name {
+    font-size: 13px;
+}
+.item-avatar>img {
+    border-radius: 0 !important;
 }

@@ -2,7 +2,7 @@
     <ion-content>
         <div class="list">
             <a class="item item-avatar item-icon-right" href ng-repeat="offer in offers" ng-click="offerSelected(offer)">
-                <img src="app/images/hcg.jpg">
+                <img ng-src="{{Logo}}">
                 <h2>{{offer.Title}}</h2>
                 <p style="white-space:normal;">{{offer.Description}}</p>
                 <i class="icon ion-chevron-right custom"></i>

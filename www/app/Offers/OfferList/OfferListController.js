@@ -1,11 +1,13 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('OfferListController', function($scope, $state, $stateParams, OfferFactory, ionicToast) {
+    .controller('OfferListController', function($scope, $state, $stateParams, OfferFactory, ionicToast, HomeFactory) {
 
         $scope.offers = [];
 
+        $scope.Logo = HomeFactory.selectedCategory.LogoURL;
+
         $scope.getAllOffers = function() {
-            OfferFactory.getAllOffers($stateParams.categoryId)
+            OfferFactory.getAllOffers(HomeFactory.selectedCategory.Id)
                 .then(function(success) {
                     if (success.data.Code != "S001") {
                         ionicToast.show(success.data.Message, 'bottom', false, 2500);

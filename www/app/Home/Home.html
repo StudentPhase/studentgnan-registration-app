@@ -3,7 +3,7 @@
         <button class="button button-icon ion-android-notifications" ng-click="notifications()"></button>
     </ion-nav-buttons>
     <ion-content>
-        <!-- <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="true" on-slide-changed="slideHasChanged($index)" class="banner-slider">
+        <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="true" on-slide-changed="slideHasChanged($index)" class="banner-slider">
             <ion-slide>
                 <div class="box blue">
                     <img src="app/images/1.jpg" alt="" width="100%">
@@ -19,17 +19,14 @@
                     <img src="app/images/3.jpg" alt="" width="100%">
                 </div>
             </ion-slide>
-        </ion-slide-box> -->
+        </ion-slide-box>
         <div class="card">
             <div class="item item-divider">
                 Emergency Contacts
-                <!-- <div class="item-note custom">
-                    Show More
-                </div> -->
             </div>
             <div class="item" style="padding:0px;">
-                <div class="row" style="overflow-x:auto;">
-                    <div class="category-item text-center" ng-repeat="category in categories" ng-click="emergencyCategorySelected(category)">
+                <div class="row" ng-repeat="rows in categories">
+                    <div class="category-item text-center" ng-repeat="category in rows" ng-click="emergencyCategorySelected(category)">
                         <img ng-src="{{category.LogoURL}}" alt="" class="category-image">
                         <div class="category-name">
                             {{category.Name}}
@@ -38,13 +35,13 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="card">
+        <div class="card">
             <div class="item item-divider">
                 Offers
             </div>
-            <div class="item" style="overflow-x:scroll;text-overflow:initial;padding:0px;">
-                <div class="row">
-                    <div class="category-item text-center" ng-repeat="category in categories" ng-if="category.Id != 1 && category.Id != 2 && category.Id != 4" ng-click="offerCategorySelected(category)">
+            <div class="item" style="padding:0px;">
+                <div class="row" ng-repeat="rows in offerCategories">
+                    <div class="category-item text-center" ng-repeat="category in rows" ng-click="offerCategorySelected(category)">
                         <img ng-src="{{category.LogoURL}}" alt="" class="category-image">
                         <div class="category-name">
                             {{category.Name}}
@@ -52,6 +49,6 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </ion-content>
 </ion-view>

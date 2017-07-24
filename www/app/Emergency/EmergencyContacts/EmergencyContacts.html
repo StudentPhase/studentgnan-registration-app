@@ -2,9 +2,9 @@
     <ion-content>
         <div class="list">
             <a class="item item-avatar item-icon-right" href ng-repeat="contact in contacts" ng-click="contactSelected(contact)">
-                <img src="app/images/hcg.jpg">
+                <img ng-src="{{Logo}}">
                 <h2>{{contact.Name}}</h2>
-                <p style="white-space:normal;">{{contact.Address}}</p>
+                <p style="white-space:normal;">{{contact.Address}} {{contact.PhoneNumber}}</p>
                 <i class="icon ion-chevron-right custom"></i>
             </a>
         </div>

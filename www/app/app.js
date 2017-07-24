@@ -143,7 +143,7 @@ angular.module('sgRegistrationApp', ['ionic',
             }
         })
         .state('menu.emergency', {
-            url: '/emergency/:categoryId',
+            url: '/emergency',
             cache: false,
             views: {
                 'menuContent': {
@@ -173,7 +173,7 @@ angular.module('sgRegistrationApp', ['ionic',
             }
         })
         .state('menu.offerList', {
-            url: '/offerList/:categoryId',
+            url: '/offerList',
             cache: false,
             views: {
                 'menuContent': {

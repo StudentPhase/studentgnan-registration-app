@@ -1,22 +1,20 @@
 <ion-view title="{{offerDetails.Title}}">
     <ion-content>
-        <div class="contact-banner logo-image"></div>
+        <div class="contact-banner">
+            <img ng-src="{{offerDetails.ImageURL}}" width="100%" height="100%" />
+        </div>
         <div class="list">
-            <div class="item item-button-right">
+            <div class="item item-button-right" ng-if="offerDetails.Description">
                 <h2>{{offerDetails.Description}}</h2>
             </div>
-            <div class="item item-button-right">
-                <h2>{{offerDetails.Address}}</h2>
-                <button class="button button-clear button-custom" ng-click="navigate(offerDetails.Address)">
-                    <i class="icon ion-navigate"></i>
-                </button>
-            </div>
-            <div class="item item-button-right">
-                <h2>{{offerDetails.PhoneNumber}}</h2>
-                <button class="button button-clear button-custom" ng-click="call(offerDetails.PhoneNumber)">
-                    <i class="icon ion-ios-telephone"></i>
-                </button>
-            </div>
+            <a class="item item-icon-right" ng-if="offerDetails.Address" href ng-click="navigate(offerDetails.Address)">
+                <h2>{{offerDetails.Address}} - Tap to navigate</h2>
+                <i class="icon ion-navigate custom"></i>
+            </a>
+            <a class="item item-icon-right" ng-if="offerDetails.PhoneNumber" href ng-click="call(offerDetails.PhoneNumber)">
+                <h2>{{offerDetails.PhoneNumber}} - Tap to call</h2>
+                <i class="icon ion-ios-telephone custom"></i>
+            </a>
         </div>
     </ion-content>
 </ion-view>

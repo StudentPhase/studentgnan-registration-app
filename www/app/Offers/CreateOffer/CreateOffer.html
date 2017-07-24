@@ -40,12 +40,12 @@
                 </label>
                 <div class="row">
                     <div class="col">
-                        <button class="button button-custom loginButton" ng-click="selectOfferImage()">Select Offer Image</button>
+                        <button class="button button-custom loginButton" ng-click="pickImage()">Select Offer Image</button>
                     </div>
                 </div>
-                <div class="row" ng-if="newOffer.ImageURL">
+                <div class="row" ng-if="newOffer.ImageBytes">
                     <div class="col">
-                        <img ng-src="{{newOffer.ImageURL}}" alt="No picture detected" width="100%;">
+                        <img ng-src="{{newOffer.ImageBytes}}" alt="No picture detected" width="100%;">
                     </div>
                 </div>
             </form>

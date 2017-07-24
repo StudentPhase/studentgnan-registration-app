@@ -1,13 +1,13 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('CreateOfferController', function($scope, $state, OfferFactory, ionicToast, $ionicHistory) {
+    .controller('CreateOfferController', function($scope, $state, OfferFactory, ionicToast, $ionicHistory, $cordovaCamera) {
 
         $scope.newOffer = {
             Id: null,
             Title: null,
             Description: null,
             VideoURL: null,
-            ImageURL: null,
+            ImageBytes: null,
             Address: null,
             PhoneNumber: null,
             Website: null,
@@ -50,12 +50,32 @@ angular.module('sgRegistrationApp')
                     if (success.data.Code != "S001") {
                         ionicToast.show(success.data.Message, 'bottom', false, 2500);
                     } else {
-                        $scope.categories = success.data.Data;
+                        for (var i = 0; i < success.data.Data.length; i++) {
+                            if (success.data.Data[i].CategoryType == "OFFER") {
+                                $scope.categories.push(success.data.Data[i]);
+                            }
+                        }
                     }
                 }, function(error) {
                     ionicToast.show(error, 'bottom', false, 2500);
                 });
-        }
+        };
+
+        $scope.pickImage = function() {
+            var options = {
+                quality: 40,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                encodingType: Camera.EncodingType.JPEG,
+            };
+            $cordovaCamera.getPicture(options)
+                .then(function(image) {
+                        $scope.newOffer.ImageBytes = "data:image/jpeg;base64," + image;
+                    },
+                    function(err) {
+                        console.log(err);
+                    });
+        };
 
         $scope.getAllCategories();
 

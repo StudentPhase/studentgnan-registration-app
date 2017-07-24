@@ -9,6 +9,8 @@ angular.module('sgRegistrationApp')
             DateOfBirth: new Date(),
             College: null,
             Course: null,
+            Address: null,
+            Email: null,
             PassportNumber: null,
             PassportImageBytes: null,
             Password: null
@@ -16,7 +18,7 @@ angular.module('sgRegistrationApp')
 
         $scope.confirm = {
             ConfirmPassword: null
-        }
+        };
 
         var ipObj1 = {
             callback: function(val) { //Mandatory
@@ -39,6 +41,8 @@ angular.module('sgRegistrationApp')
                 $scope.newRegistration.PhoneNumber == null || $scope.newRegistration.PhoneNumber == "" ||
                 $scope.newRegistration.College == null || $scope.newRegistration.College == "" ||
                 $scope.newRegistration.Course == null || $scope.newRegistration.Course == "" ||
+                $scope.newRegistration.Address == null || $scope.newRegistration.Address == "" ||
+                $scope.newRegistration.Email == null || $scope.newRegistration.Email == "" ||
                 $scope.newRegistration.PassportNumber == null || $scope.newRegistration.PassportNumber == "" ||
                 $scope.newRegistration.PassportImageBytes == null || $scope.newRegistration.PassportImageBytes == "" ||
                 $scope.newRegistration.Password == null || $scope.newRegistration.Password == "" ||

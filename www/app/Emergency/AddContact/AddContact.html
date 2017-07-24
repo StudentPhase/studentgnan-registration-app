@@ -26,6 +26,16 @@
                     <span class="input-label custom">Address</span>
                     <textarea placeholder="Address" name="address" rows="5" class="textArea" ng-model="newContact.Address"></textarea>
                 </label>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-custom loginButton" ng-click="pickImage()">Choose Banner</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="newContact.ImageBytes">
+                    <div class="col">
+                        <img ng-src="{{newContact.ImageBytes}}" alt="No picture detected" width="100%;">
+                    </div>
+                </div>
             </form>
         </div>
         <div class="row">
