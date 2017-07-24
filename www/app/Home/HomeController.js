@@ -31,5 +31,9 @@ angular.module('sgRegistrationApp')
             $state.go('menu.offerList', { categoryId: category.Id });
         };
 
+        $scope.notifications = function() {
+            $state.go('menu.notificationsList');
+        };
+
         $scope.getAllCategories();
     });

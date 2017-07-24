@@ -1,6 +1,9 @@
 <ion-view title="Welcome, {{loggedInUser.Name}}" class="nav-title-slide-ios7">
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon ion-android-notifications" ng-click="notifications()"></button>
+    </ion-nav-buttons>
     <ion-content>
-        <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="true" on-slide-changed="slideHasChanged($index)" class="banner-slider">
+        <!-- <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="true" on-slide-changed="slideHasChanged($index)" class="banner-slider">
             <ion-slide>
                 <div class="box blue">
                     <img src="app/images/1.jpg" alt="" width="100%">
@@ -16,7 +19,7 @@
                     <img src="app/images/3.jpg" alt="" width="100%">
                 </div>
             </ion-slide>
-        </ion-slide-box>
+        </ion-slide-box> -->
         <div class="card">
             <div class="item item-divider">
                 Emergency Contacts
@@ -24,9 +27,9 @@
                     Show More
                 </div> -->
             </div>
-            <div class="item item-text-wrap" style="padding:0px;">
-                <div class="row">
-                    <div class="col text-center" ng-repeat="category in categories" ng-click="emergencyCategorySelected(category)">
+            <div class="item" style="padding:0px;">
+                <div class="row" style="overflow-x:auto;">
+                    <div class="category-item text-center" ng-repeat="category in categories" ng-click="emergencyCategorySelected(category)">
                         <img ng-src="{{category.LogoURL}}" alt="" class="category-image">
                         <div class="category-name">
                             {{category.Name}}
@@ -35,12 +38,9 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <!-- <div class="card">
             <div class="item item-divider">
                 Offers
-                <!-- <div class="item-note custom">
-                    Show More
-                </div> -->
             </div>
             <div class="item" style="overflow-x:scroll;text-overflow:initial;padding:0px;">
                 <div class="row">
@@ -52,6 +52,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </ion-content>
 </ion-view>

@@ -189,8 +189,48 @@ angular.module('sgRegistrationApp', ['ionic',
             cache: false,
             views: {
                 'menuContent': {
-                    templateUrl: 'app/Notifications/Notifications.html',
+                    templateUrl: 'app/Notifications/SendNotifications/Notifications.html',
                     controller: 'NotificationsController'
+                }
+            }
+        })
+        .state('menu.notificationsList', {
+            url: '/notificationsList',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Notifications/NotificationsList/NotificationsList.html',
+                    controller: 'NotificationsListController'
+                }
+            }
+        })
+        .state('menu.notificationDetails', {
+            url: '/notificationDetails',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/Notifications/NotificationDetails/NotificationDetails.html',
+                    controller: 'NotificationDetailsController'
+                }
+            }
+        })
+        .state('menu.studentList', {
+            url: '/studentList',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/StudentList/StudentList.html',
+                    controller: 'StudentListController'
+                }
+            }
+        })
+        .state('menu.studentDetails', {
+            url: '/studentDetails',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/StudentDetails/StudentDetails.html',
+                    controller: 'StudentDetailsController'
                 }
             }
         });

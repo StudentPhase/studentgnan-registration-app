@@ -28,11 +28,14 @@
                 <ion-item class="item-icon-left" menu-close href="#/addEmergencyContact" ng-if="loggedInUser.Role != 'STUDENT'">
                     <i class="icon custom ion-plus-round"></i> Create Emergency Contact
                 </ion-item>
-                <ion-item class="item-icon-left" menu-close href="#/createOffer" ng-if="loggedInUser.Role != 'STUDENT'">
+                <!-- <ion-item class="item-icon-left" menu-close href="#/createOffer" ng-if="loggedInUser.Role != 'STUDENT'">
                     <i class="icon custom ion-plus-round"></i> Create Offer
+                </ion-item> -->
+                <ion-item class="item-icon-left" menu-close href="#/studentList" ng-if="loggedInUser.Role != 'STUDENT'">
+                    <i class="icon custom ion-university"></i> Students
                 </ion-item>
                 <ion-item class="item-icon-left" menu-close href="#/sendNotification" ng-if="loggedInUser.Role != 'STUDENT'">
-                    <i class="icon custom ion-android-notifications"></i> Send Notification
+                    <i class="icon custom ion-paper-airplane"></i> Send Notification
                 </ion-item>
                 <ion-item class="item-icon-left" menu-close href ng-click="logout()">
                     <i class="icon custom ion-power"></i> Logout

@@ -1,0 +1,40 @@
+<ion-view title="Student Details">
+    <ion-content>
+        <ion-list can-swipe="true">
+            <ion-item>
+                <h2 class="custom">Name</h2>
+                <p>{{studentDetails.Name}}</p>
+            </ion-item>
+            <ion-item>
+                <h2 class="custom">College</h2>
+                <p>{{studentDetails.College}}</p>
+            </ion-item>
+            <ion-item>
+                <h2 class="custom">Course</h2>
+                <p>{{studentDetails.Course}}</p>
+            </ion-item>
+            <ion-item>
+                <h2 class="custom">Date of Birth</h2>
+                <p>{{studentDetails.DateOfBirth | date:'dd/MMM/yyyy'}}</p>
+                <ion-option-button class="button-balanced" ng-click="openDateOfBirthPicker(studentDetails.DateOfBirth)">
+                    <i class="icon ion-edit" style="margin: auto"></i>
+                </ion-option-button>
+            </ion-item>
+            <ion-item>
+                <h2 class="custom">Student Contact Number</h2>
+                <p>{{studentDetails.PhoneNumber}}</p>
+                <ion-option-button class="button-custom" ng-click="call(studentDetails.PhoneNumber)">
+                    <i class="icon ion-ios-telephone" style="margin: auto"></i>
+                </ion-option-button>
+                <ion-option-button class="button-balanced" ng-click="editPhoneNumber(studentDetails.PhoneNumber, 1)">
+                    <i class="icon ion-edit" style="margin: auto"></i>
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <div class="row">
+            <div class="col">
+                <button class="button button-custom loginButton" ng-click="resetPassword()">Reset Password</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

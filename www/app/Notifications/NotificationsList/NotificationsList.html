@@ -1,0 +1,11 @@
+<ion-view title="Notifications">
+    <ion-content>
+        <div class="list">
+            <a class="item item-icon-right" href ng-repeat="notification in notifications" ng-click="notificationSelected(notification)">
+                <h2>{{notification.Title}}</h2>
+                <p style="white-space:normal;">{{notification.Description}}</p>
+                <i class="icon ion-chevron-right custom"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
