@@ -1,7 +1,11 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('ViewOfferController', function($scope, $state, OfferFactory, ionicToast, $ionicHistory) {
+    .controller('ViewOfferController', function($scope, $state, OfferFactory, ionicToast, $ionicHistory, $sce) {
         $scope.offerDetails = OfferFactory.selectedOffer;
+        if ($scope.offerDetails.VideoURL != "" || $scope.offerDetails.VideoURL != null) {
+            $scope.offerDetails.VideoURL = $sce.trustAsResourceUrl($scope.offerDetails.VideoURL);
+        }
+
         $scope.call = function(offer) {
             var call = "tel:" + offer;
             document.location.href = call;

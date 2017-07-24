@@ -27,6 +27,9 @@ angular.module('sgRegistrationApp')
                 $scope.newOffer.CategoryId == undefined || $scope.newOffer.CategoryId == null) {
                 ionicToast.show('Please enter all the fields', 'bottom', false, 2500);
             } else {
+                if ($scope.newOffer.VideoURL != "") {
+                    $scope.newOffer.VideoURL = $scope.convertToEmbedURL($scope.newOffer.VideoURL);
+                }
                 OfferFactory.addOffer($scope.newOffer)
                     .then(function(success) {
                         if (success.data.Code != "S001") {
@@ -75,6 +78,17 @@ angular.module('sgRegistrationApp')
                     function(err) {
                         console.log(err);
                     });
+        };
+
+        $scope.convertToEmbedURL = function(url) {
+            var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            var match = url.match(regExp);
+
+            if (match && match[2].length == 11) {
+                return 'https://www.youtube.com/embed/' + match[2] + '?rel=0&amp;showinfo=0';
+            } else {
+                return 'error';
+            }
         };
 
         $scope.getAllCategories();
