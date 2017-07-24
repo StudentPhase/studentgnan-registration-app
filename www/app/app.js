@@ -24,6 +24,24 @@ angular.module('sgRegistrationApp', ['ionic',
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
+        $ionicPlatform.registerBackButtonAction(function(e) {
+            if ($state.is('menu.home')) {
+                if (confirm('Are you sure you want to Exit?')) {
+                    ionic.Platform.exitApp();
+                    return false;
+                } else {
+                    e.preventDefault();
+                    return false;
+                }
+            } else if ($state.is('menu.emergency') || $state.is('menu.offerList') || $state.is('menu.notificationsList') || $state.is('menu.studentList') || $state.is('menu.addEmergencyContact') || $state.is('menu.createOffer') || $state.is('menu.sendNotification')) {
+                $ionicHistory.nextViewOptions({
+                    disableBack: true
+                });
+                $state.go('menu.home');
+            } else {
+                $ionicHistory.goBack();
+            }
+        }, 100);
 
         FCMPlugin.getToken(function(token) {
             LoginFactory.DeviceId = token;
