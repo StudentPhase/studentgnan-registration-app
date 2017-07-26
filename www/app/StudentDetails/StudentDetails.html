@@ -1,4 +1,7 @@
 <ion-view title="Student Details">
+    <ion-nav-buttons side="secondary">
+        <button ng-if="loggedInUser.Role == 'SUPERADMIN'" class="button button-icon ion-trash-b" ng-click="deleteStudent()"></button>
+    </ion-nav-buttons>
     <ion-content>
         <ion-list can-swipe="true">
             <ion-item>

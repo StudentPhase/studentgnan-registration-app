@@ -20,14 +20,10 @@ angular.module('sgRegistrationApp')
         $scope.create = function() {
             if ($scope.newOffer.Title == "" || $scope.newOffer.Title == null ||
                 $scope.newOffer.Description == "" || $scope.newOffer.Description == null ||
-                $scope.newOffer.Address == "" || $scope.newOffer.Address == null ||
-                $scope.newOffer.PhoneNumber == undefined || $scope.newOffer.PhoneNumber == null ||
-                $scope.newOffer.Website == "" || $scope.newOffer.Website == null ||
-                $scope.newOffer.OfferCode == "" || $scope.newOffer.OfferCode == null ||
                 $scope.newOffer.CategoryId == undefined || $scope.newOffer.CategoryId == null) {
                 ionicToast.show('Please enter all the fields', 'bottom', false, 2500);
             } else {
-                if ($scope.newOffer.VideoURL != "") {
+                if ($scope.newOffer.VideoURL != "" && $scope.newOffer.VideoURL != null) {
                     $scope.newOffer.VideoURL = $scope.convertToEmbedURL($scope.newOffer.VideoURL);
                 }
                 OfferFactory.addOffer($scope.newOffer)

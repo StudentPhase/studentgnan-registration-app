@@ -1,7 +1,9 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('StudentDetailsController', function($scope, $state, StudentListFactory, ionicToast, $ionicListDelegate, $ionicPopup, ionicDatePicker) {
+    .controller('StudentDetailsController', function($scope, $state, StudentListFactory, ionicToast, $ionicListDelegate, $ionicPopup, ionicDatePicker, LoginFactory, $ionicHistory) {
         $scope.student = StudentListFactory.selectedStudent;
+
+        $scope.loggedInUser = LoginFactory.loggedInUser;
 
         $scope.studentDetails = null;
 
@@ -257,6 +259,39 @@ angular.module('sgRegistrationApp')
                     }
                 });
             }
+        };
+
+        $scope.deleteStudent = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Delete Student',
+                template: 'Are you sure you want to delete this Contact?',
+                buttons: [{
+                        text: 'Cancel',
+                        type: 'button-light'
+                    },
+                    {
+                        text: 'Ok',
+                        type: 'button-custom',
+                        onTap: function(e) {
+                            // Returning a value will cause the promise to resolve with the given value.
+                            StudentListFactory.deleteStudent($scope.studentDetails)
+                                .then(function(success) {
+                                    if (success.data.Code != "S001") {
+                                        ionicToast.show(success.data.Message, 'bottom', false, 2500);
+                                    } else {
+                                        ionicToast.show('Student deleted Successfully', 'bottom', false, 2500);
+                                        $ionicHistory.nextViewOptions({
+                                            disableBack: true
+                                        });
+                                        $state.go('menu.studentList');
+                                    }
+                                }, function(error) {
+                                    ionicToast.show(error, 'bottom', false, 2500);
+                                });
+                        }
+                    }
+                ]
+            });
         };
 
         $scope.getStudentDetails();

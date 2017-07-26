@@ -1,7 +1,8 @@
 'use strict';
 angular.module('sgRegistrationApp')
-    .controller('ViewOfferController', function($scope, $state, OfferFactory, ionicToast, $ionicHistory, $sce) {
+    .controller('ViewOfferController', function($scope, $state, OfferFactory, ionicToast, $ionicHistory, $sce, LoginFactory, $ionicPopup) {
         $scope.offerDetails = angular.copy(OfferFactory.selectedOffer);
+        $scope.loggedInUser = LoginFactory.loggedInUser;
         if ($scope.offerDetails.VideoURL != "" || $scope.offerDetails.VideoURL != null) {
             $scope.offerDetails.VideoURL = $sce.trustAsResourceUrl($scope.offerDetails.VideoURL);
         }
@@ -39,6 +40,39 @@ angular.module('sgRegistrationApp')
                 }, function(error) {
                     ionicToast.show(error, 'bottom', false, 2500);
                 });
+        };
+
+        $scope.deleteOffer = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Delete Offer',
+                template: 'Are you sure you want to delete this Offer?',
+                buttons: [{
+                        text: 'Cancel',
+                        type: 'button-light'
+                    },
+                    {
+                        text: 'Ok',
+                        type: 'button-custom',
+                        onTap: function(e) {
+                            // Returning a value will cause the promise to resolve with the given value.
+                            OfferFactory.deleteOffer($scope.offerDetails)
+                                .then(function(success) {
+                                    if (success.data.Code != "S001") {
+                                        ionicToast.show(success.data.Message, 'bottom', false, 2500);
+                                    } else {
+                                        ionicToast.show('Offer deleted Successfully', 'bottom', false, 2500);
+                                        $ionicHistory.nextViewOptions({
+                                            disableBack: true
+                                        });
+                                        $state.go('menu.offerList');
+                                    }
+                                }, function(error) {
+                                    ionicToast.show(error, 'bottom', false, 2500);
+                                });
+                        }
+                    }
+                ]
+            });
         };
 
     });

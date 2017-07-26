@@ -118,5 +118,22 @@ angular.module('sgRegistrationApp').factory('StudentListFactory', function($q, $
         return d.promise;
     };
 
+    factory.deleteStudent = function(obj) {
+        var d = $q.defer();
+        $http({
+            method: 'DELETE',
+            url: URL + '/student',
+            data: obj,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(success) {
+            d.resolve(success);
+        }, function(error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
     return factory;
 });

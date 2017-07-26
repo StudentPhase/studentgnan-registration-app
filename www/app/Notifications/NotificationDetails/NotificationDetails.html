@@ -1,8 +1,9 @@
 <ion-view title="Notification Details">
     <ion-content>
-        <div class="contact-banner" ng-if="notification.ImageURL">
+        <div class="contact-banner" ng-if="notification.ImageURL != null && notification.ImageURL != 'null'">
             <img ng-src="{{notification.ImageURL}}" width="100%" height="100%" />
         </div>
+        <iframe ng-if="notification.VideoURL" style="display:block;" width="100%" height="202px" src="{{notification.VideoURL}}" frameborder="0" allowfullscreen></iframe>
         <div class="list" style="margin:0px;">
             <div class="item">
                 <h2>{{notification.Title}}</h2>
@@ -12,6 +13,5 @@
                 <p>{{notification.Description}}</p>
             </div>
         </div>
-        <iframe ng-if="notification.VideoURL" width="100%" height="202px" src="{{notification.VideoURL}}" frameborder="0" allowfullscreen></iframe>
     </ion-content>
 </ion-view>

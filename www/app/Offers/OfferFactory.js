@@ -67,5 +67,22 @@ angular.module('sgRegistrationApp').factory('OfferFactory', function($q, $http, 
         return d.promise;
     };
 
+    factory.deleteOffer = function(obj) {
+        var d = $q.defer();
+        $http({
+            method: 'DELETE',
+            url: URL + '/offer',
+            data: obj,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(success) {
+            d.resolve(success);
+        }, function(error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
     return factory;
 });

@@ -1,11 +1,16 @@
 <ion-view title="{{offerDetails.Title}}">
+    <ion-nav-buttons side="secondary">
+        <button ng-if="loggedInUser.Role == 'SUPERADMIN'" class="button button-icon ion-trash-b" ng-click="deleteOffer()"></button>
+    </ion-nav-buttons>
     <ion-content>
         <div class="contact-banner" ng-if="offerDetails.ImageURL">
             <img ng-src="{{offerDetails.ImageURL}}" width="100%" height="100%" />
         </div>
+        <iframe style="display:block;" ng-if="offerDetails.VideoURL" width="100%" height="202px" src="{{offerDetails.VideoURL}}" frameborder="0" allowfullscreen></iframe>
         <div class="list" style="margin:0px;">
-            <div class="item item-button-right" ng-if="offerDetails.Description">
+            <div class="item item-icon-left" ng-if="offerDetails.Description">
                 <h2>{{offerDetails.Description}}</h2>
+                <i class="icon ion-document-text custom"></i>
             </div>
             <a class="item item-icon-left" ng-if="offerDetails.Website" ng-href="{{offerDetails.Website}}">
                 <h2>{{offerDetails.Website}} - Tap to visit</h2>
@@ -20,8 +25,7 @@
                 <i class="icon ion-ios-telephone custom"></i>
             </a>
         </div>
-        <iframe ng-if="offerDetails.VideoURL" width="100%" height="202px" src="{{offerDetails.VideoURL}}" frameborder="0" allowfullscreen></iframe>
-        <div class="row">
+        <div class="row" ng-if="loggedInUser.Role == 'SUPERADMIN'">
             <div class="col">
                 <button class="button button-custom loginButton" ng-click="sendNotification()">Send Notification</button>
             </div>

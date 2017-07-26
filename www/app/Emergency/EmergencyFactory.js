@@ -50,5 +50,22 @@ angular.module('sgRegistrationApp').factory('EmergencyContactFactory', function(
         return d.promise;
     };
 
+    factory.deleteContact = function(obj) {
+        var d = $q.defer();
+        $http({
+            method: 'DELETE',
+            url: URL + '/emergencyContact',
+            data: obj,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(success) {
+            d.resolve(success);
+        }, function(error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
     return factory;
 });
