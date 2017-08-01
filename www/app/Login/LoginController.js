@@ -52,7 +52,7 @@ angular.module('sgRegistrationApp')
         });
 
         $scope.update = function() {
-            window.location.href = "https://play.google.com/store/apps/details?id=com.studentgnan.www";
+            window.location.href = "https://play.google.com/store/apps/details?id=com.sinope.www";
         };
 
         $scope.register = function() {
