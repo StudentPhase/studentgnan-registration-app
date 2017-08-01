@@ -1,7 +1,7 @@
 'use strict';
 angular.module('sgRegistrationApp')
     .controller('RegisterController', function($scope, $state, RegisterFactory, ionicDatePicker, ionicToast, $ionicHistory, $cordovaCamera) {
-
+        $scope.showPasswordIsChecked = false;
         $scope.newRegistration = {
             Id: null,
             Name: null,

@@ -50,12 +50,15 @@
             </div>
             <label class="item item-input item-stacked-label">
                 <span class="input-label custom">Password</span>
-                <input type="password" placeholder="Password" ng-model="newRegistration.Password">
+                <input type="text" ng-if="showPasswordIsChecked" placeholder="Password" ng-model="newRegistration.Password">
+                <input type="password" ng-if="!showPasswordIsChecked" placeholder="Password" ng-model="newRegistration.Password">
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label custom">Confirm Password</span>
-                <input type="text" placeholder="Confirm Password" ng-model="confirm.ConfirmPassword">
+                <input type="text" ng-if="showPasswordIsChecked" placeholder="Confirm Password" ng-model="confirm.ConfirmPassword">
+                <input type="password" ng-if="!showPasswordIsChecked" placeholder="Confirm Password" ng-model="confirm.ConfirmPassword">
             </label>
+            <ion-checkbox ng-model="showPasswordIsChecked" class="checkbox-custom">Show password</ion-checkbox>
             <!-- <div class="item">
                 <div class="row" style="padding-left:0px;padding-top:0px;">
                     <div class="col custom" style="font-size:16px;padding-left:0px;padding-top:0px;">
