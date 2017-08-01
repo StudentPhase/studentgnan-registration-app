@@ -1,5 +1,5 @@
 <ion-side-menus enable-menu-with-back-views="false">
-    <ion-side-menu-content>
+    <ion-side-menu-content edge-drag-threshold="true">
         <ion-nav-bar class="bar-custom">
             <ion-nav-back-button>
             </ion-nav-back-button>
@@ -33,6 +33,9 @@
                 </ion-item>
                 <ion-item class="item-icon-left" menu-close href="#/studentList" ng-if="loggedInUser.Role != 'STUDENT'">
                     <i class="icon custom ion-university"></i> Students
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/changePassword">
+                    <i class="icon custom ion-edit"></i> Change Password
                 </ion-item>
                 <ion-item class="item-icon-left" menu-close href="#/sendNotification" ng-if="loggedInUser.Role != 'STUDENT'">
                     <i class="icon custom ion-paper-airplane"></i> Send Notification

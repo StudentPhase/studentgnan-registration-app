@@ -33,7 +33,7 @@ angular.module('sgRegistrationApp', ['ionic',
                     e.preventDefault();
                     return false;
                 }
-            } else if ($state.is('menu.emergency') || $state.is('menu.offerList') || $state.is('menu.notificationsList') || $state.is('menu.studentList') || $state.is('menu.addEmergencyContact') || $state.is('menu.createOffer') || $state.is('menu.sendNotification')) {
+            } else if ($state.is('menu.emergency') || $state.is('menu.offerList') || $state.is('menu.notificationsList') || $state.is('menu.studentList') || $state.is('menu.addEmergencyContact') || $state.is('menu.createOffer') || $state.is('menu.sendNotification') || $state.is('menu.changePassword')) {
                 $ionicHistory.nextViewOptions({
                     disableBack: true
                 });
@@ -249,6 +249,16 @@ angular.module('sgRegistrationApp', ['ionic',
                 'menuContent': {
                     templateUrl: 'app/StudentDetails/StudentDetails.html',
                     controller: 'StudentDetailsController'
+                }
+            }
+        })
+        .state('menu.changePassword', {
+            url: '/changePassword',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/ChangePassword/ChangePassword.html',
+                    controller: 'ChangePasswordController'
                 }
             }
         });

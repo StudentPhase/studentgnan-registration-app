@@ -7,6 +7,7 @@ angular.module('sgRegistrationApp')
         $scope.categories = [];
         $scope.offerCategories = [];
         $scope.slides = [];
+        $scope.offers = null;
 
         $scope.getAllSlides = function() {
             HomeFactory.getAllSlides()
@@ -67,6 +68,18 @@ angular.module('sgRegistrationApp')
             return newArr;
         };
 
+        $scope.getAllOffers = function() {
+            OfferFactory.getAllAvailableOffers()
+                .then(function(success) {
+                    if (success.data.Code == "S001") {
+                        $scope.offers = success.data.Data;
+                    }
+                }, function(error) {
+                    ionicToast.show(error, 'bottom', false, 2500);
+                });
+        };
+
         $scope.getAllCategories();
         $scope.getAllSlides();
+        $scope.getAllOffers();
     });

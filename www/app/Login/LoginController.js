@@ -3,8 +3,8 @@ angular.module('sgRegistrationApp')
     .controller('LoginController', function($scope, $state, LoginFactory) {
 
         $scope.loginData = {
-            PhoneNumber: 9739241152,
-            Password: 'ajith1990@',
+            PhoneNumber: null,
+            Password: '',
             DeviceId: null,
             AppVersion: '1.0.0',
             OperatingSystem: ionic.Platform.platform()

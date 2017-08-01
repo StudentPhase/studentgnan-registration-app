@@ -20,6 +20,19 @@ angular.module('sgRegistrationApp').factory('OfferFactory', function($q, $http, 
         return d.promise;
     };
 
+    factory.getAllAvailableOffers = function() {
+        var d = $q.defer();
+        $http({
+            method: 'GET',
+            url: URL + '/offer',
+        }).then(function(success) {
+            d.resolve(success);
+        }, function(error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
     factory.getAllCategories = function() {
         var d = $q.defer();
         $http({
