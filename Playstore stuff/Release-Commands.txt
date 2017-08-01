@@ -1,0 +1,19 @@
+----------------sinope app---------------------
+
+keytool -genkey -v -keystore sinope-release-key.keystore -alias sinope_alias_name -keyalg RSA -keysize 2048 -validity 100000
+
+cordova build --release android
+
+open cmd as administrator and enter the commands in jdk\bin folder
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore sinope-release-key.keystore android-release-unsigned.apk sinope_alias_name
+
+jarsigner -verify -verbose -certs android-release-unsigned.apk
+
+zipalign -v 4 android-release-unsigned.apk Sinope.apk
+
+--------credentials--------------
+
+sinope-release-key.keystore
+sinope_alias_name
+password: sonymt15i
