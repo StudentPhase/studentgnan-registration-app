@@ -6,7 +6,7 @@ angular.module('sgRegistrationApp')
             PhoneNumber: null,
             Password: '',
             DeviceId: null,
-            AppVersion: '1.0.0',
+            AppVersion: LoginFactory.AppVersion,
             OperatingSystem: ionic.Platform.platform()
         };
 
