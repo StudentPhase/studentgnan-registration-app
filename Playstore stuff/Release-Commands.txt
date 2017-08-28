@@ -10,7 +10,7 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore sinope-release-
 
 jarsigner -verify -verbose -certs android-release-unsigned.apk
 
-zipalign -v 4 android-release-unsigned.apk Sinope.apk
+zipalign -v 4 android-release-unsigned.apk AE2I.apk
 
 --------credentials--------------
 
